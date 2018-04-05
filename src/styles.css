@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    background-color: #803758;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+input.mat-input-element {
+    padding: 10px 20px;
+    height: 60px;
+    font-size: 1.4em;
+    color: #202020;
+}
+.mat-form-field-underline {
+    display: none;
+}
+.mat-form-field-infix {
+    padding: 0;
+    border: none
+}
+.mat-form-field-can-float.mat-form-field-should-float label.mat-form-field-label, label.mat-form-field-empty.mat-form-field-label {
+    display: none;
+}
