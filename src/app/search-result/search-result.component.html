@@ -1,0 +1,21 @@
+<div class="wihi__search">
+  <h1 class="wihi__search__title">You probably heard "<span class="wihi__search__title__term">{{searchTerm}}</span>" in:</h1>
+
+  <div class="wihi__search__result">
+    <div *ngFor="let item of results" class="wihi__search__result__item">
+      <img class="item__image" [src]="item.image" alt="">
+      <div class="item__infos">
+        <h3 class="item__category">
+          {{item.category}}
+        </h3>
+        <h2 class="item__title">
+          {{item.name}}
+        </h2>
+      </div>
+      <div class="item__actions">
+          <i class="like material-icons">thumb_up</i>
+          <i class="dislike material-icons">thumb_down</i>
+      </div>
+    </div>
+  </div>
+</div>

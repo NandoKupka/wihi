@@ -1,0 +1,60 @@
+/deep/ app-search-result
+    width: 100%
+    height: 100%
+.wihi__search
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    // justify-content: center
+    align-items: center
+.wihi__search__title
+    color: #f1f1f1
+    text-align: center
+    font-weight: normal
+    margin: 9vh 0
+    .wihi__search__title__term
+        font-weight: bold
+        font-size: 1.3em
+        padding: 0 .1em
+.wihi__search__result
+    width: 92%
+    max-width: 1000px
+    .wihi__search__result__item
+        width: 100%
+        height: 20vh
+        background-color: #964d6e
+        display: flex
+        margin-bottom: 20px
+        position: relative
+        .item__image
+            max-height: 100%
+            margin-right: 50px
+        .item__infos
+            color: #f1f1f1
+            display: flex
+            flex-direction: column
+            justify-content: center
+            .item__title
+                margin: 0
+            .item__category
+                margin: 0
+                font-size: .88em
+        .item__actions
+            position: absolute
+            right: 60px
+            top: 50%
+            margin-top: 6px
+            transform: translateY(-50%)
+            .material-icons
+                margin-right: 20px
+                font-size: 2.2em
+                transition: transform .16s ease-out
+                transform: scale(.86)
+                cursor: pointer
+                &:hover
+                    transform: scale(1)
+            .like
+                color: #8ca98c
+            .dislike
+                color: #da6565
