@@ -4,9 +4,17 @@
       <i class="material-icons">record_voice_over</i>
     </div>
     <h1 class="wihi__splash__title">Welcome to WIHI!</h1>
-    <mat-form-field class="wihi__splash__search">
-      <input matInput placeholder="Favorite food" value="Sushi">
-      <i class="material-icons">send</i>
-    </mat-form-field>
+    <form (submit)="doSearch()" class="wihi__splash__search">
+      <mat-form-field class="wihi__splash__input">
+        <input type="text" placeholder="Tell me the name of the fucking song that's in your head" matInput name="currentFilter" (input)="keyInput($event)" [(ngModel)]="currentFilter" [matAutocomplete]="auto">
+        <i (click)="doSearch()" class="material-icons">send</i>
+      </mat-form-field>
+      
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option (click)="doSearch()" *ngFor="let option of filteredOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
   </div>
 </div>

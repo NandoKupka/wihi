@@ -35,6 +35,10 @@ input.mat-input-element {
     padding: 0;
     border: none
 }
-.mat-form-field-can-float.mat-form-field-should-float label.mat-form-field-label, label.mat-form-field-empty.mat-form-field-label {
+.mat-form-field-can-float.mat-form-field-should-float label.mat-form-field-label {
     display: none;
+}
+label.mat-form-field-empty.mat-form-field-label {
+    line-height: 46px;
+    padding: 0 20px;
 }
