@@ -1,0 +1,5 @@
+<form (submit)="newSong()">
+  <input type="text" [(ngModel)]="newSongData.name" name="name">
+  <input type="text" [(ngModel)]="newSongData.artist" name="artist">
+  <input type="submit" value="Send">
+</form>

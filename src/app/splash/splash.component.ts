@@ -4,6 +4,7 @@ import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-splash',
@@ -17,7 +18,7 @@ export class SplashComponent implements OnInit {
   timeout: number;
   isWaitingKeypress: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: Http) {
     this.options = []
   }
 
@@ -26,15 +27,16 @@ export class SplashComponent implements OnInit {
 
   keyInput(ev) {
     this.filteredOptions = []
-    console.log('oloook', this.currentFilter)
+    console.log('looking for... ', this.currentFilter)
     this.currentFilter = ev.target.value
     this.isWaitingKeypress = true;
     if (this.isWaitingKeypress) {
       window.clearTimeout(this.timeout)
     }
     this.timeout = window.setTimeout(x => {
-      this.doFilter(this.currentFilter).then(res => {
-        this.filteredOptions = res;
+      this.doFilter(this.currentFilter).subscribe(res => {
+        debugger;
+        this.filteredOptions = res.json();
       })
     }, 700)
   }
@@ -46,14 +48,14 @@ export class SplashComponent implements OnInit {
   }
 
   doFilter(term: String) {
-    console.log('oi')
-    return new Promise<any[]>(function(resolve, reject) {
-      setTimeout(x => {
-        if (term.toUpperCase() == 'free'.toUpperCase())
-          resolve(['Free Bird', 'Free as Bird'])
-        else
-          resolve(['Teste', 'Teste'])
-        }, 100)
-    });
+    return this.http.post('//localhost:5000/searchSong', {term: term})
+    // return new Promise<any[]>(function(resolve, reject) {
+    //   setTimeout(x => {
+    //     if (term.toUpperCase() == 'free'.toUpperCase())
+    //       resolve(['Free Bird', 'Free as Bird'])
+    //     else
+    //       resolve(['Teste', 'Teste'])
+    //     }, 100)
+    // });
   }
 }

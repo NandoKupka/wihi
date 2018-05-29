@@ -10,10 +10,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SplashComponent } from './splash/splash.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { NewSongComponent } from './new-song/new-song.component';
+import { HttpModule } from '@angular/http';
+import { NewArtistComponent } from './new-artist/new-artist.component';
 
 const appRoutes: Routes = [
   { path: '', component: SplashComponent },
   { path: 'search/:term', component: SearchResultComponent },
+  { path: 'newSong', component: NewSongComponent },
+  { path: 'newArtist', component: NewArtistComponent },
   
 ];
 
@@ -21,11 +26,14 @@ const appRoutes: Routes = [
   declarations: [
     SplashComponent,
     AppComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    NewSongComponent,
+    NewArtistComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     MatInputModule,
     MatAutocompleteModule,
