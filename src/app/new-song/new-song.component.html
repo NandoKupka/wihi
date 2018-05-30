@@ -1,12 +1,22 @@
 <form (submit)="newSong()">
-  <input type="text" [(ngModel)]="newSongData.name" name="name">
+  <mat-form-field>
+    <input matInput placeholder="Song name" class="input" type="text" [(ngModel)]="newSongData.name" name="name">
+  </mat-form-field>
   <mat-form-field>
     <input type="text" placeholder="Artist" matInput name="currentFilter" (input)="keyInput($event)" [(ngModel)]="currentFilter" [matAutocomplete]="auto">
   </mat-form-field>
   
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option (click)="setArtist()" *ngFor="let option of filteredOptions" [value]="option.name">
-      {{ option.name  }}
+    <div *ngIf="!noresult">
+
+      <mat-option (click)="setArtist($event)"  [attr.data-id]="option._id" *ngFor="let option of filteredOptions" [value]="option.name">
+        {{ option.name  }}
+      </mat-option>
+    </div>
+    <mat-option (click)="createArtist($event)" *ngIf="noresult">
+      No match was found. Click here to create this artist!
     </mat-option>
   </mat-autocomplete>
+
+  <input type="submit" value="Send">
 </form>

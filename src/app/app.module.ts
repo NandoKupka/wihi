@@ -13,13 +13,15 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { NewSongComponent } from './new-song/new-song.component';
 import { HttpModule } from '@angular/http';
 import { NewArtistComponent } from './new-artist/new-artist.component';
+import { NewReferenceComponent } from './new-reference/new-reference.component';
 
 const appRoutes: Routes = [
   { path: '', component: SplashComponent },
   { path: 'search/:term', component: SearchResultComponent },
   { path: 'newSong', component: NewSongComponent },
   { path: 'newArtist', component: NewArtistComponent },
-  
+  { path: 'newReference', component: NewReferenceComponent },
+
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     SearchResultComponent,
     NewSongComponent,
-    NewArtistComponent
+    NewArtistComponent,
+    NewReferenceComponent
   ],
   imports: [
     BrowserModule,

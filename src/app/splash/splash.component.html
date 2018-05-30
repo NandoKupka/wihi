@@ -11,7 +11,7 @@
       </mat-form-field>
       
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option (click)="doSearch()" *ngFor="let option of filteredOptions" [value]="option.name + ' - ' + option.artist">
+        <mat-option (click)="doSearch()" *ngFor="let option of filteredOptions" [value]="option.name">
           {{ option.name + ' - ' + option.artist }}
         </mat-option>
       </mat-autocomplete>
