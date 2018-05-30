@@ -1,5 +1,12 @@
 <form (submit)="newSong()">
   <input type="text" [(ngModel)]="newSongData.name" name="name">
-  <input type="text" [(ngModel)]="newSongData.artist" name="artist">
-  <input type="submit" value="Send">
+  <mat-form-field>
+    <input type="text" placeholder="Artist" matInput name="currentFilter" (input)="keyInput($event)" [(ngModel)]="currentFilter" [matAutocomplete]="auto">
+  </mat-form-field>
+  
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option (click)="setArtist()" *ngFor="let option of filteredOptions" [value]="option.name">
+      {{ option.name  }}
+    </mat-option>
+  </mat-autocomplete>
 </form>
