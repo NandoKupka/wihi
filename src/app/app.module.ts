@@ -14,6 +14,7 @@ import { NewSongComponent } from './new-song/new-song.component';
 import { HttpModule } from '@angular/http';
 import { NewArtistComponent } from './new-artist/new-artist.component';
 import { NewReferenceComponent } from './new-reference/new-reference.component';
+import { NewListComponent } from './new-list/new-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: SplashComponent },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'newSong', component: NewSongComponent },
   { path: 'newArtist', component: NewArtistComponent },
   { path: 'newReference', component: NewReferenceComponent },
+  { path: 'newList', component: NewListComponent },
 
 ];
 
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     SearchResultComponent,
     NewSongComponent,
     NewArtistComponent,
-    NewReferenceComponent
+    NewReferenceComponent,
+    NewListComponent
   ],
   imports: [
     BrowserModule,

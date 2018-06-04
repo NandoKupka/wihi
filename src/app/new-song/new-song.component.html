@@ -9,7 +9,7 @@
   <mat-autocomplete #auto="matAutocomplete">
     <div *ngIf="!noresult">
 
-      <mat-option (click)="setArtist($event)"  [attr.data-id]="option._id" *ngFor="let option of filteredOptions" [value]="option.name">
+      <mat-option (click)="setArtist($event)" *ngFor="let option of filteredOptions" [value]="option.name">
         {{ option.name  }}
       </mat-option>
     </div>

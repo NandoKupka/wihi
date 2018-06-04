@@ -26,6 +26,10 @@ export class NewSongComponent implements OnInit {
   ngOnInit() {
   }
 
+  setArtist(ev) {
+    this.newSongData.artist = this.filteredOptions.find(x => x.name == this.currentFilter)
+  }
+
   keyInput(ev) {
     this.filteredOptions = []
     this.noresult = false
@@ -49,10 +53,6 @@ export class NewSongComponent implements OnInit {
 
   createArtist() {
     this.router.navigate(['', 'newArtist'])
-  }
-
-  setArtist(ev) {
-    this.newSongData.artist = ev.currentTarget.dataset.id;
   }
 
   doFilter(term: String) {
