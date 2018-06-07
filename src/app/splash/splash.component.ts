@@ -42,22 +42,15 @@ export class SplashComponent implements OnInit {
     }, 700)
   }
 
-  doSearch() {
+  doSearch(song) {
     this.filteredOptions = []
+    debugger;
     setTimeout(x => {
-      this.router.navigate(['', 'search', this.currentFilter])
+      this.router.navigate(['', 'song', song._id])
     }, 200)
   }
 
   doFilter(term: String) {
     return this.http.post('//localhost:3000/searchSong', {term: term})
-    // return new Promise<any[]>(function(resolve, reject) {
-    //   setTimeout(x => {
-    //     if (term.toUpperCase() == 'free'.toUpperCase())
-    //       resolve(['Free Bird', 'Free as Bird'])
-    //     else
-    //       resolve(['Teste', 'Teste'])
-    //     }, 100)
-    // });
   }
 }

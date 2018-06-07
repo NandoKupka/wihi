@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-search-result',
-  templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.sass']
+  selector: 'app-song',
+  templateUrl: './song.component.html',
+  styleUrls: ['./song.component.sass']
 })
-export class SearchResultComponent implements OnInit {
+export class SongComponent implements OnInit {
+
+
   results: { name: string; image: string;category: string }[];
   searchTerm: any;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute:    ) {
     this.results = [
       {
         name: "Grand Theft Auto: San Andreas",
@@ -29,12 +31,10 @@ export class SearchResultComponent implements OnInit {
       }
     ]
   }
-
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.searchTerm = params['term']
       debugger;
     })
   }
-
 }
