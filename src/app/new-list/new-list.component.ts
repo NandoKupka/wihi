@@ -58,7 +58,6 @@ export class NewListComponent implements OnInit {
   }
 
   addSongReference(refId, songId) {
-    debugger;
     let songReference = {
       reference: refId || null,
       song: songId || null,
@@ -98,6 +97,9 @@ export class NewListComponent implements OnInit {
               this.newSong(newSongData).subscribe(songInfo => {
                 this.addSongReference(this.reference._id, songInfo.json()._id)
               });
+            }
+            else {
+              this.addSongReference(this.reference._id, songResult.json()[0]._id)
             }
           });
         }

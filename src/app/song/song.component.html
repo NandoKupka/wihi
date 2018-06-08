@@ -1,9 +1,9 @@
-<div class="wihi__search">
-  <h1 class="wihi__search__title">You probably heard "<span class="wihi__search__title__term">{{searchTerm}}</span>" in:</h1>
+<div class="wihi__search" *ngIf="songData">
+  <h1 class="wihi__search__title">You probably heard "<span class="wihi__search__title__term">{{songData.name}}</span>" in:</h1>
 
   <div class="wihi__search__result">
-    <div *ngFor="let item of results" class="wihi__search__result__item">
-      <img class="item__image" [src]="item.image" alt="">
+    <div *ngFor="let item of refs" class="wihi__search__result__item">
+      <img class="item__image" [src]="item.imageUrl" alt="">
       <div class="item__infos">
         <h3 class="item__category">
           {{item.category}}
